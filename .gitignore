@@ -16,6 +16,8 @@ node_modules/
 *.rar
 *.zip
 .idea
+.package.json
+.package-lock.json
 .publish
 ex_files
 Thumbs.db
