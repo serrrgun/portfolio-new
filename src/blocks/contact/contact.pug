@@ -1,0 +1,14 @@
+mixin contact()
+  section.contact
+    h1 Contact Me
+      form(action="")
+        label.contact__name Name:
+          input(type="text" id='name')
+        
+        label.contact__email Email:
+          input(type="email" id='email') 
+
+        label(message="message").contact__name Name:
+          textarea(name="" id="message")
+
+        
