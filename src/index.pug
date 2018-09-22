@@ -1,8 +1,8 @@
 extends templates/layout-home.pug
 
 block meta
-  title Home
-  meta(name='description', content='Home page!')
+  title My Portfolio
+  meta(name='description', content='My Portfolio!')
 
 //- block append head
 //-   link(rel="stylesheet", href="some.css")
@@ -11,6 +11,12 @@ block meta
 block nav
   
 block content
-  .content Hello i content
+  +hero()  
+  +welcome()
+  +about-me()
+  +portfolio()
+  +contact()
+block page-bottom
+  +footer()  
 //- block append page-bottom
 //-   script(src='some.js')
