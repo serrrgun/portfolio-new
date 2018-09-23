@@ -3,7 +3,49 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .about-me {
+  @include container;
+  @include clearfix;
+  
+  margin-top: 3em;
+  margin-bottom: 5em;
+ 
+  &__title {
+    margin-bottom: .25em;
+  }
 
-  $block-name:                &; // #{$block-name}__element
+  &__subtitle {
+    margin: .5em 0;
+  }
 
+  &__image {
+    max-height: 25em;
+
+    @media (min-width: 42em) {
+      float: left;
+      margin-right: 1em;
+    }
+  }
+}
+
+@supports (display: grid) {
+  .about-me {
+    display: grid;
+    grid-template-columns: [port-start] minmax(6em, 1fr) [name-start] minmax(6em, 1fr) [img-end] 2fr [port-end];
+  }
+
+  .about-me__image {
+    grid-column: port / img;
+    grid-row: 1 / 2;
+  }
+
+  .about-me__title {
+     grid-column: name / port;
+     grid-row: 1 / 2;
+     align-self: end;
+  }
+
+  .about-me__subtitle,
+  .about-me__text {
+    grid-column: port / port;
+  }
 }

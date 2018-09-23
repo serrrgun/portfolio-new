@@ -3,7 +3,49 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .portfolio {
+  text-align: center;
+  background: $light-gray;
+  padding: 5em 0;
 
-  $block-name:                &; // #{$block-name}__element
+  &__item {
+    position: relative;
+    overflow: hidden;
 
+    img {
+      display: block;
+    }
+
+    figcaption {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: 2em;
+      background: rgba($accent, .5);
+      color: $white;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    color: $white;
+    font-size: 3.625rem;
+    margin-bottom: auto;
+  }
+
+  &__link {
+    color: $white;
+    font-weight: $fw-b;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-bottom: 2px solid $white;
+    align-self: flex-start;
+
+    &::after {
+      // 
+    }
+  }
 }

@@ -3,7 +3,43 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .hero {
+    background-image: url(../img/hero-image-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  $block-name:                &; // #{$block-name}__element
+    h1 {
+      font-size: 1.5rem;
+      font-weight: $fw-n;
+      color: $dark-blue;
+      line-height: 1.5;
+      text-align: center;
 
+      span {
+        display: block;
+        @include sans-serif($fs: 5.5rem, $color: $accent);
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 1px;
+        background: $dark-blue;
+      } 
+
+      &::before {
+        margin: 0 auto 2em;
+      }
+
+      &::after {
+        margin: 2em auto 0; 
+      }
+
+    }
 }
