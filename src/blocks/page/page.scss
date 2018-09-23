@@ -1,1 +1,45 @@
 // Глобальные стили (.page — на теге html)
+
+body {
+    color: $gray;
+    font-family: $font-family;
+    font-size: .875rem;
+    line-height: 1.6;
+    background: $white;
+}
+
+img {
+    max-width: 100%;;
+}
+
+h1, h2, p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: $accent;
+    line-height: 1;
+    font-size: 3.125rem;
+}
+
+h2 {
+    @include sans-serif($fs: 2rem);
+}
+
+figure {
+    margin: 0;
+}
+
+@mixin container($width: 90%, $max-width: 50em) {
+    width: $width;
+    margin: 0 auto;
+    max-width: $max-width;
+}
+
+@mixin clearfix() {
+    &::after {
+        content: '';
+        clear: both;
+    }
+}

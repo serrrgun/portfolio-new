@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900|Six+Caps&subset=cyrillic-ext');
+
 $white: #FFFFFF;
-$light-gray: #A7A7A7;
-$gray: #E8E9EB;
+$light-gray: #E8E9EB;
+$gray: #A7A7A7;
 $dark-gray: #606060;
 $accent: #03AFC2;
 $dark-blue: #223843;
 
-$font-family:         -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-$font-size:           14px;
-$line-height:         1.4;
+$text-primary:        $gray;
+$text-accent:         $accent;
+
+$font-family:         'Merriweather', serif;
+$font-family-caps:    'Six Caps', sans-serif;
+$fw-n:                400;
+$fw-b:                900; 
+@mixin sans-serif($fs, $ls: .15em, $color: $dark-gray, $tt: uppercase, $lh: 1) {
+  letter-spacing: $ls;
+  font-size: $fs;
+  color: $color;
+  text-transform: $tt;
+  line-height: $lh;
+  font-family: $font-family-caps;
+  font-weight: $fw-n;
+}
 
 $screen-xs:           480px;
 $screen-sm:           768px;

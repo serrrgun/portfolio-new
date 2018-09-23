@@ -3,7 +3,41 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .welcome {
+    display: flex;
+    color: rgba($white, .7);
+    
+    h2 {
+        color: $white;
 
-  $block-name:                &; // #{$block-name}__element
+        &::after {
+            content: '';
+            width: 20%;
+            height: 1px;
+            background: rgba($white, .5);
+            display: block;
+            margin: 1em auto 0;
+        }
+    }
 
+    @supports (display: grid) {
+        display: grid;
+        grid-template-columns: minmax(4em, 1fr) minmax(auto, 30em) minmax(4em, 1fr);
+    }
+
+    &__middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $dark-blue;
+        padding: 2.5em 5vw;
+        text-align: center;
+    }
+
+    &__left img,
+    &__right img {
+        display: block;
+        object-fit: cover;
+        min-height: 100%;
+        min-width: 100%;
+    }
 }
