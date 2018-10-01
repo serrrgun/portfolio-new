@@ -1,14 +1,14 @@
-// В этом файле должны быть стили для БЭМ-блока about-me, его элементов, 
+// В этом файле должны быть стили для БЭМ-блока about-me, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .about-me {
   @include container;
   @include clearfix;
-  
+
   margin-top: 3em;
   margin-bottom: 5em;
- 
+
   &__title {
     margin-bottom: .25em;
   }
@@ -31,11 +31,17 @@
   .about-me {
     display: grid;
     grid-template-columns: [port-start] minmax(6em, 1fr) [name-start] minmax(6em, 1fr) [img-end] 2fr [port-end];
+    grid-column-gap: .5em;
   }
 
   .about-me__image {
     grid-column: port / img;
     grid-row: 1 / 2;
+
+    @include mq {
+      grid-row: 1 / 4;
+    }
+
   }
 
   .about-me__title {
@@ -47,5 +53,17 @@
   .about-me__subtitle,
   .about-me__text {
     grid-column: port / port;
+
+    @include mq {
+      grid-column: image-end / port-end;
+    }
+  }
+
+  .about-me__subtitle {
+    grid-row: 2 / 3;
+  }
+
+  .about-me__text {
+    grid-row: 3 / 4;
   }
 }

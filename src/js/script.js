@@ -16,3 +16,9 @@ $(document).ready(function(){
 // ready(function(){
 //   // code
 // });
+
+var navToggle = document.querySelector('.nav__button');
+
+navToggle.addEventListener('click', function() {
+  document.body.classList.toggle('nav__open');
+});

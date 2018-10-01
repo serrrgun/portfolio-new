@@ -1,0 +1,126 @@
+// В этом файле должны быть стили для БЭМ-блока nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.nav {
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 15%;
+  z-index: 10;
+
+  transform: translateX(-100%);
+  transition: transform ease-in-out 250ms;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 100vh;
+    //width: 80%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: $accent;
+  }
+
+  li {
+    border-bottom: 1px solid $dark-blue;
+    text-align: center;
+    padding: calc(100vh/11) 0;
+    transition: ease-in .3s;
+  }
+
+  li:hover {
+    background: rgba($dark-blue, .5);
+
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    @include sans-serif($fs: 4rem, $color: $dark-blue);
+    text-decoration: none;
+    //padding: calc(100vh/20) 0;
+    line-height: 1;
+  }
+
+  &__button {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+
+    @include mq {
+      top: 3em;
+      right: 3em;
+    }
+  }
+
+  &__button span,
+  &__button span::before,
+  &__button span::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -13px;
+    margin-top: -1px;
+    width: 25px;
+    height: 2px;
+    background-color: $dark-blue;
+    transition: all ease-in-out 250ms;
+  }
+
+  &__button span::before,
+  &__button span::after {
+    content: '';
+  }
+
+  &__button span::before {
+    transform: translateY(-6px);
+  }
+
+  &__button span::after {
+    transform: translateY(6px);
+  }
+}
+
+.nav__open {
+  nav {
+    transform: translateX(0);
+  }
+
+  .page__content {
+    //transform: translateX(80%);
+  }
+
+  .nav__button span::before {
+    transform: rotate(35deg);
+    transform-origin: left bottom;
+    width: 13px;
+  }
+
+  .nav__button span::after {
+    transform: rotate(-35deg);
+    transform-origin: left top;
+    width: 13px;
+  }
+
+  .nav__button span,
+  .nav__button span::before,
+  .nav__button span::after {
+    height: 3px;
+    margin-top: -2px;
+  }
+}
+
+.page__content {
+  transition: transform ease-in-out 250ms;
+}

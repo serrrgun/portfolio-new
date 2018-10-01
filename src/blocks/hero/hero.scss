@@ -1,8 +1,9 @@
-// В этом файле должны быть стили для БЭМ-блока hero, его элементов, 
+// В этом файле должны быть стили для БЭМ-блока hero, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .hero {
+    position: relative;
     background-image: url(../img/hero-image-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,9 +20,18 @@
       line-height: 1.5;
       text-align: center;
 
+      @include mq {
+        font-size: 3vw;
+      }
+
       span {
         display: block;
         @include sans-serif($fs: 5.5rem, $color: $accent);
+
+        @include mq {
+          font-size: 10vw;
+        }
+
       }
 
       &::before,
@@ -31,14 +41,14 @@
         width: 60%;
         height: 1px;
         background: $dark-blue;
-      } 
+      }
 
       &::before {
         margin: 0 auto 2em;
       }
 
       &::after {
-        margin: 2em auto 0; 
+        margin: 2em auto 0;
       }
 
     }

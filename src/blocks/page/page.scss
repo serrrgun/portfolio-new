@@ -6,6 +6,11 @@ body {
     font-size: .875rem;
     line-height: 1.6;
     background: $white;
+    overflow-x: hidden;
+
+    @include mq {
+      font-size: 1.125rem;
+    }
 }
 
 img {
@@ -21,25 +26,20 @@ h1 {
     color: $accent;
     line-height: 1;
     font-size: 3.125rem;
+
+    @include mq {
+      font-size: 4.25rem;
+    }
 }
 
 h2 {
     @include sans-serif($fs: 2rem);
+
+    @include mq {
+      font-size: 3rem;
+    }
 }
 
 figure {
     margin: 0;
-}
-
-@mixin container($width: 90%, $max-width: 50em) {
-    width: $width;
-    margin: 0 auto;
-    max-width: $max-width;
-}
-
-@mixin clearfix() {
-    &::after {
-        content: '';
-        clear: both;
-    }
 }

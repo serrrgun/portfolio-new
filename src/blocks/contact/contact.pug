@@ -1,14 +1,15 @@
 mixin contact()
   section.contact
     h1 Contact Me
-      form(action="")
-        label.contact__name Name:
-          input(type="text" id='name')
-        
-        label.contact__email Email:
-          input(type="email" id='email') 
+    form(action="")
+      label.contact__name Name:
+        input(type="text" id='name')
 
-        label(message="message").contact__name Name:
-          textarea(name="" id="message")
+      label.contact__email Email:
+        input(type="email" id='email')
 
-        
+      label(message="message").contact__message Message:
+        textarea(name="" id="message")
+      button(type="submit").contact__button send
+
+

@@ -1,9 +1,80 @@
-// В этом файле должны быть стили для БЭМ-блока contact, его элементов, 
+// В этом файле должны быть стили для БЭМ-блока contact, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .contact {
 
-  $block-name:                &; // #{$block-name}__element
+  @include container;
+  padding: 5em 0;
 
+  h1 {
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+    width: auto;
+    margin-top: 1em;
+    margin-left: auto;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    background-color: $accent;
+    @include sans-serif($fs: 2rem, $color: $white);
+    padding: .5em 1.5em;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  @supports (display: grid) {
+    @include mq {
+      display: grid;
+      grid-column: 1fr 1fr;
+      grid-column-gap: 1em;
+      grid-template-areas:
+        'name    email'
+        'message message'
+        '  .     button';
+
+        .contact__name {
+          grid-area: name;
+        }
+
+        .contact__email {
+          grid-area: email;
+        }
+
+        .contact__message {
+          grid-area: message;
+          textarea {
+            height: 10em;
+          }
+        }
+
+        .contact__button {
+          grid-area: button;
+        }
+    }
+  }
+
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+  color: $dark-gray;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: .75em;
+  background: lighten($light-gray, 7%);
+  border: 1px solid $gray;
+  font-size: 1.2rem;
 }

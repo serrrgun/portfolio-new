@@ -6,6 +6,7 @@
 // Глобальные подключения
 @import 'variables.scss';
 @import 'fonts.scss';
+@import '_mixins';
 
 // Растровый спрайт: примеси-генераторы правил
 @import './src/blocks/sprite-png/sprite-png.scss';
@@ -20,3 +21,4 @@
 @import './src/blocks/portfolio/portfolio.scss';
 @import './src/blocks/contact/contact.scss';
 @import './src/blocks/footer/footer.scss';
+@import './src/blocks/nav/nav.scss';
